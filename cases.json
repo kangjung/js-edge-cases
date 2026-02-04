@@ -1,113 +1,114 @@
 [
-    {
-      id: "sec1",
-      title: { ko: "가짜 화살표 연산자", en: "The Fake Arrow Operator" },
-      desc: { ko: "x가 0으로 발사되는 화살표?", en: "Arrow shooting x to 0?" },
-      code: "for(let x = 5; x <b>--></b> 0; ) {\n  console.log(x);\n}",
-      challenge: { ko: "출력 결과는 무엇일까요?", en: "What will be logged?" },
-      result: { ko: "4, 3, 2, 1, 0 <br><small>사실 'x-- > 0'입니다. 띄어쓰기 묘기일 뿐이죠!</small>", en: "4, 3, 2, 1, 0 <br><small>It's actually 'x-- > 0'. Just a spacing trick!</small>" }
-    },
-    {
-      id: "sec2",
-      title: { ko: "객체와 배열의 덧셈", en: "Object/Array Coercion" },
-      desc: { ko: "순서가 바뀌면 결과도 바뀔까요?", en: "Does order change the result?" },
-      code: "[] + {}; // ???\n{} + []; // ???",
-      challenge: { ko: "두 줄의 결과가 왜 다를까요?", en: "Why are they different?" },
-      result: { ko: "\"[object Object]\" 와 0 <br><small>{}가 앞에 오면 블록으로 해석될 수 있습니다.</small>", en: "\"[object Object]\" and 0 <br><small>Leading {} can be treated as an empty block.</small>" }
-    },
-    {
-      id: "sec3",
-      title: { ko: "NaN은 숫자인가?", en: "NaN Identity Crisis" },
-      desc: { ko: "숫자가 아닌 숫자의 정체", en: "The identity of Not-a-Number" },
-      code: "typeof NaN;\nNaN === NaN;",
-      challenge: { ko: "NaN은 자기 자신과 같을까요?", en: "Is NaN equal to itself?" },
-      result: { ko: "\"number\" 와 false <br><small>NaN은 유일하게 자기 자신과 같지 않은 값입니다.</small>", en: "\"number\" and false <br><small>NaN is the only value not equal to itself.</small>" }
-    },
-    {
-      id: "sec4",
-      title: { ko: "불리언 비교 체인", en: "Boolean Comparison Chain" },
-      desc: { ko: "1 < 2 < 3의 진실", en: "The truth behind 1 < 2 < 3" },
-      code: "1 < 2 < 3; // ???\n3 > 2 > 1; // ???",
-      challenge: { ko: "둘 다 true일까요?", en: "Are both true?" },
-      result: { ko: "true 와 false <br><small>(3 > 2)는 true(1)이 되어, 1 > 1은 거짓이 됩니다.</small>", en: "true and false <br><small>(3 > 2) becomes true(1), so 1 > 1 is false.</small>" }
-    },
-    {
-      id: "sec5",
-      title: { ko: "전설의 [] == ![]", en: "The Classic [] == ![]" },
-      desc: { ko: "JS에서 가장 황당한 비교", en: "Most insane comparison in JS" },
-      code: "[] == ![];",
-      challenge: { ko: "참일까요, 거짓일까요?", en: "True or False?" },
-      result: { ko: "true <br><small>둘 다 숫자 0으로 형변환되어 비교됩니다.</small>", en: "true <br><small>Both are coerced to the number 0.</small>" }
-    },{
-      id: "sec6",
-      title: { ko: "Math.min()의 배신", en: "The Betrayal of Math.min()" },
-      desc: { ko: "최솟값이 최댓값보다 크다?", en: "Is Minimum larger than Maximum?" },
-      code: "Math.min() > Math.max();",
-      challenge: { ko: "이 비교문의 결과는 무엇일까요?", en: "What is the result of this?" },
-      result: { ko: "true <br><small>Math.min()은 Infinity를, Math.max()는 -Infinity를 반환하기 때문입니다. (인자가 없을 때 기준)</small>", en: "true <br><small>Because Math.min() returns Infinity and Math.max() returns -Infinity when no arguments are provided.</small>" }
-    },
-    {
-      id: "sec7",
-      title: { ko: "바나나 만들기", en: "Making a Banana" },
-      desc: { ko: "문자열 덧셈의 연쇄 작용", en: "Chain reaction of string addition" },
-      code: "('b' + 'a' + + 'a' + 'a').toLowerCase();",
-      challenge: { ko: "무슨 단어가 출력될까요?", en: "What word will be logged?" },
-      result: { ko: "\"banana\" <br><small>中間에 있는 + + 'a'가 NaN(Not a Number)이 되어 baNaNa가 됩니다.</small>", en: "\"banana\" <br><small>The + + 'a' in the middle results in NaN, creating 'baNaNa'.</small>" }
-    },
-    {
-      id: "sec8",
-      title: { ko: "정렬의 함정", en: "The Sort Trap" },
-      desc: { ko: "숫자 배열을 정렬했는데 상태가..?", en: "Sorting numbers, but wait..." },
-      code: "[1, 10, 2, 21].sort();",
-      challenge: { ko: "결과가 [1, 2, 10, 21] 일까요?", en: "Will it be [1, 2, 10, 21]?" },
-      result: { ko: "[1, 10, 2, 21] <br><small>JS의 sort()는 기본적으로 요소를 '문자열'로 변환해 사전순으로 정렬합니다.</small>", en: "[1, 10, 2, 21] <br><small>By default, JS sort() converts elements to strings and sorts them lexicographically.</small>" }
-    },
-    {
-      id: "sec9",
-      title: { ko: "소수점의 마법", en: "Floating Point Magic" },
-      desc: { ko: "0.1 + 0.2는 0.3이 아니다", en: "0.1 + 0.2 is not 0.3" },
-      code: "0.1 + 0.2 === 0.3;",
-      challenge: { ko: "당연히 true겠죠?", en: "True, right?" },
-      result: { ko: "false <br><small>부동 소수점 오차 때문에 실제 값은 0.30000000000000004가 나옵니다.</small>", en: "false <br><small>Due to floating-point precision, it results in 0.30000000000000004.</small>" }
-    },
-    {
-      id: "sec10",
-      title: { ko: "Null의 정체성", en: "The Identity of Null" },
-      desc: { ko: "비어있는데 객체라고?", en: "Empty, but an Object?" },
-      code: "typeof null === 'object';\nnull instanceof Object;",
-      challenge: { ko: "둘 다 true일까요?", en: "Are both true?" },
-      result: { ko: "true 와 false <br><small>typeof null이 'object'인 건 자바스크립트 초기 설계상의 버그지만, 하위 호환성을 위해 고치지 못하고 전설로 남았습니다.</small>", en: "true and false <br><small>typeof null being 'object' is a bug from the early days of JS, kept for backward compatibility.</small>" }
-    },
-    {
-      id: "sec11",
-      title: { ko: "콤마 연산자의 마법", en: "The Comma Operator Trick" },
-      desc: { ko: "괄호 안의 쉼표는 무엇을 남길까", en: "What does the comma leave behind?" },
-      code: "let x = (1, 2, 3);\nconsole.log(x);",
-      challenge: { ko: "x에 담길 숫자는?", en: "What is the value of x?" },
-      result: { ko: "3 <br><small>콤마(,) 연산자는 왼쪽부터 차례대로 실행하고 마지막 값을 반환합니다. 생각보다 유용하지만 읽기엔 최악이죠.</small>", en: "3 <br><small>The comma operator evaluates each operand and returns the last one.</small>" }
-    },
-    {
-      id: "sec12",
-      title: { ko: "배열 더하기 배열", en: "Array + Array" },
-      desc: { ko: "배열 두 개를 더하면?", en: "Adding two arrays" },
-      code: "[] + [];",
-      challenge: { ko: "새로운 배열이 생길까요?", en: "Will it create a new array?" },
-      result: { ko: "\"\" (빈 문자열) <br><small>배열이 원시 값으로 변환되는 과정에서 빈 문자열이 되고, \"\" + \"\" 가 실행됩니다.</small>", en: "\"\" (Empty string) <br><small>Arrays are coerced into empty strings, resulting in \"\" + \"\".</small>" }
-    },
-    {
-      id: "sec13",
-      title: { ko: "숫자 뒤의 점 두 개", en: "The Double Dot Trick" },
-      desc: { ko: "1..toString()은 문법 오류일까?", en: "Is 1..toString() a syntax error?" },
-      code: "1..toString();\n1.toString(); // Error?",
-      challenge: { ko: "어느 쪽이 에러일까요?", en: "Which one throws an error?" },
-      result: { ko: "1.toString()이 에러! <br><small>점 하나는 소수점으로 인식되어 에러가 나지만, 두 개를 찍으면 첫 번째는 소수점, 두 번째는 메서드 호출로 인식됩니다.</small>", en: "1.toString() throws an error! <br><small>The first dot is treated as a decimal point. Double dots allow method calls on literals.</small>" }
-    },
-    {
-      id: "sec14",
-      title: { ko: "최후의 논리 연산", en: "Ultimate Logical Coercion" },
-      desc: { ko: "비어있는 값들의 비교", en: "Comparing the empty ones" },
-      code: "(![] + [])[+[]] + (![] + [])[+!+[]];",
-      challenge: { ko: "이 외계어의 실행 결과는?", en: "What is the result of this gibberish?" },
-      result: { ko: "\"fa\" <br><small>'false' 문자열의 0번째와 1번째 글자를 가져온 것입니다. 이런 식으로 모든 영단어를 조합하는 'JSFuck'이라는 언어도 존재합니다.</small>", en: "\"fa\" <br><small>It extracts 'f' and 'a' from the string 'false'. There's even a language called 'JSFuck' based on this.</small>" }
-    }
+  {
+    "id": "sec1",
+    "title": { "ko": "가짜 화살표 연산자", "en": "The Fake Arrow Operator" },
+    "desc": { "ko": "x가 0으로 발사되는 화살표?", "en": "Arrow shooting x to 0?" },
+    "code": "for(let x = 5; x <b>--></b> 0; ) {\n  console.log(x);\n}",
+    "challenge": { "ko": "출력 결과는 무엇일까요?", "en": "What will be logged?" },
+    "result": { "ko": "4, 3, 2, 1, 0 <br><small>사실 'x-- > 0'입니다. 띄어쓰기 묘기일 뿐이죠!</small>", "en": "4, 3, 2, 1, 0 <br><small>It's actually 'x-- > 0'. Just a spacing trick!</small>" }
+  },
+  {
+    "id": "sec2",
+    "title": { "ko": "객체와 배열의 덧셈", "en": "Object/Array Coercion" },
+    "desc": { "ko": "순서가 바뀌면 결과도 바뀔까요?", "en": "Does order change the result?" },
+    "code": "[] + {}; // ???\n{} + []; // ???",
+    "challenge": { "ko": "두 줄의 결과가 왜 다를까요?", "en": "Why are they different?" },
+    "result": { "ko": "\"[object Object]\" 와 0 <br><small>{}가 앞에 오면 블록으로 해석될 수 있습니다.</small>", "en": "\"[object Object]\" and 0 <br><small>Leading {} can be treated as an empty block.</small>" }
+  },
+  {
+    "id": "sec3",
+    "title": { "ko": "NaN은 숫자인가?", "en": "NaN Identity Crisis" },
+    "desc": { "ko": "숫자가 아닌 숫자의 정체", "en": "The identity of Not-a-Number" },
+    "code": "typeof NaN;\nNaN === NaN;",
+    "challenge": { "ko": "NaN은 자기 자신과 같을까요?", "en": "Is NaN equal to itself?" },
+    "result": { "ko": "\"number\" 와 false <br><small>NaN은 유일하게 자기 자신과 같지 않은 값입니다.</small>", "en": "\"number\" and false <br><small>NaN is the only value not equal to itself.</small>" }
+  },
+  {
+    "id": "sec4",
+    "title": { "ko": "불리언 비교 체인", "en": "Boolean Comparison Chain" },
+    "desc": { "ko": "1 < 2 < 3의 진실", "en": "The truth behind 1 < 2 < 3" },
+    "code": "1 < 2 < 3; // ???\n3 > 2 > 1; // ???",
+    "challenge": { "ko": "둘 다 true일까요?", "en": "Are both true?" },
+    "result": { "ko": "true 와 false <br><small>(3 > 2)는 true(1)이 되어, 1 > 1은 거짓이 됩니다.</small>", "en": "true and false <br><small>(3 > 2) becomes true(1), so 1 > 1 is false.</small>" }
+  },
+  {
+    "id": "sec5",
+    "title": { "ko": "전설의 [] == ![]", "en": "The Classic [] == ![]" },
+    "desc": { "ko": "JS에서 가장 황당한 비교", "en": "Most insane comparison in JS" },
+    "code": "[] == ![];",
+    "challenge": { "ko": "참일까요, 거짓일까요?", "en": "True or False?" },
+    "result": { "ko": "true <br><small>둘 다 숫자 0으로 형변환되어 비교됩니다.</small>", "en": "true <br><small>Both are coerced to the number 0.</small>" }
+  },
+  {
+    "id": "sec6",
+    "title": { "ko": "Math.min()의 배신", "en": "The Betrayal of Math.min()" },
+    "desc": { "ko": "최솟값이 최댓값보다 크다?", "en": "Is Minimum larger than Maximum?" },
+    "code": "Math.min() > Math.max();",
+    "challenge": { "ko": "이 비교문의 결과는 무엇일까요?", "en": "What is the result of this?" },
+    "result": { "ko": "true <br><small>Math.min()은 Infinity를, Math.max()는 -Infinity를 반환하기 때문입니다. (인자가 없을 때 기준)</small>", "en": "true <br><small>Because Math.min() returns Infinity and Math.max() returns -Infinity when no arguments are provided.</small>" }
+  },
+  {
+    "id": "sec7",
+    "title": { "ko": "바나나 만들기", "en": "Making a Banana" },
+    "desc": { "ko": "문자열 덧셈의 연쇄 작용", "en": "Chain reaction of string addition" },
+    "code": "('b' + 'a' + + 'a' + 'a').toLowerCase();",
+    "challenge": { "ko": "무슨 단어가 출력될까요?", "en": "What word will be logged?" },
+    "result": { "ko": "\"banana\" <br><small>中間에 있는 + + 'a'가 NaN(Not a Number)이 되어 baNaNa가 됩니다.</small>", "en": "\"banana\" <br><small>The + + 'a' in the middle results in NaN, creating 'baNaNa'.</small>" }
+  },
+  {
+    "id": "sec8",
+    "title": { "ko": "정렬의 함정", "en": "The Sort Trap" },
+    "desc": { "ko": "숫자 배열을 정렬했는데 상태가..?", "en": "Sorting numbers, but wait..." },
+    "code": "[1, 10, 2, 21].sort();",
+    "challenge": { "ko": "결과가 [1, 2, 10, 21] 일까요?", "en": "Will it be [1, 2, 10, 21]?" },
+    "result": { "ko": "[1, 10, 2, 21] <br><small>JS의 sort()는 기본적으로 요소를 '문자열'로 변환해 사전순으로 정렬합니다.</small>", "en": "[1, 10, 2, 21] <br><small>By default, JS sort() converts elements to strings and sorts them lexicographically.</small>" }
+  },
+  {
+    "id": "sec9",
+    "title": { "ko": "소수점의 마법", "en": "Floating Point Magic" },
+    "desc": { "ko": "0.1 + 0.2는 0.3이 아니다", "en": "0.1 + 0.2 is not 0.3" },
+    "code": "0.1 + 0.2 === 0.3;",
+    "challenge": { "ko": "당연히 true겠죠?", "en": "True, right?" },
+    "result": { "ko": "false <br><small>부동 소수점 오차 때문에 실제 값은 0.30000000000000004가 나옵니다.</small>", "en": "false <br><small>Due to floating-point precision, it results in 0.30000000000000004.</small>" }
+  },
+  {
+    "id": "sec10",
+    "title": { "ko": "Null의 정체성", "en": "The Identity of Null" },
+    "desc": { "ko": "비어있는데 객체라고?", "en": "Empty, but an Object?" },
+    "code": "typeof null === 'object';\nnull instanceof Object;",
+    "challenge": { "ko": "둘 다 true일까요?", "en": "Are both true?" },
+    "result": { "ko": "true 와 false <br><small>typeof null이 'object'인 건 자바스크립트 초기 설계상의 버그지만, 하위 호환성을 위해 고치지 못하고 전설로 남았습니다.</small>", "en": "true and false <br><small>typeof null being 'object' is a bug from the early days of JS, kept for backward compatibility.</small>" }
+  },
+  {
+    "id": "sec11",
+    "title": { "ko": "콤마 연산자의 마법", "en": "The Comma Operator Trick" },
+    "desc": { "ko": "괄호 안의 쉼표는 무엇을 남길까", "en": "What does the comma leave behind?" },
+    "code": "let x = (1, 2, 3);\nconsole.log(x);",
+    "challenge": { "ko": "x에 담길 숫자는?", en: "What is the value of x?" },
+    "result": { "ko": "3 <br><small>콤마(,) 연산자는 왼쪽부터 차례대로 실행하고 마지막 값을 반환합니다. 생각보다 유용하지만 읽기엔 최악이죠.</small>", "en": "3 <br><small>The comma operator evaluates each operand and returns the last one.</small>" }
+  },
+  {
+    "id": "sec12",
+    "title": { "ko": "배열 더하기 배열", "en": "Array + Array" },
+    "desc": { "ko": "배열 두 개를 더하면?", en: "Adding two arrays" },
+    "code": "[] + [];",
+    "challenge": { "ko": "새로운 배열이 생길까요?", "en": "Will it create a new array?" },
+    "result": { "ko": "\"\" (빈 문자열) <br><small>배열이 원시 값으로 변환되는 과정에서 빈 문자열이 되고, \"\" + \"\" 가 실행됩니다.</small>", "en": "\"\" (Empty string) <br><small>Arrays are coerced into empty strings, resulting in \"\" + \"\".</small>" }
+  },
+  {
+    "id": "sec13",
+    "title": { "ko": "숫자 뒤의 점 두 개", "en": "The Double Dot Trick" },
+    "desc": { "ko": "1..toString()은 문법 오류일까?", en: "Is 1..toString() a syntax error?" },
+    "code": "1..toString();\n1.toString(); // Error?",
+    "challenge": { "ko": "어느 쪽이 에러일까요?", "en": "Which one throws an error?" },
+    "result": { "ko": "1.toString()이 에러! <br><small>점 하나는 소수점으로 인식되어 에러가 나지만, 두 개를 찍으면 첫 번째는 소수점, 두 번째는 메서드 호출로 인식됩니다.</small>", "en": "1.toString() throws an error! <br><small>The first dot is treated as a decimal point. Double dots allow method calls on literals.</small>" }
+  },
+  {
+    "id": "sec14",
+    "title": { "ko": "최후의 논리 연산", "en": "Ultimate Logical Coercion" },
+    "desc": { "ko": "비어있는 값들의 비교", "en": "Comparing the empty ones" },
+    "code": "(![] + [])[+[]] + (![] + [])[+!+[]];",
+    "challenge": { "ko": "이 외계어의 실행 결과는?", "en": "What is the result of this gibberish?" },
+    "result": { "ko": "\"fa\" <br><small>'false' 문자열의 0번째와 1번째 글자를 가져온 것입니다. 이런 식으로 모든 영단어를 조합하는 'JSFuck'이라는 언어도 존재합니다.</small>", "en": "\"fa\" <br><small>It extracts 'f' and 'a' from the string 'false'. There's even a language called 'JSFuck' based on this.</small>" }
+  }
 ]
