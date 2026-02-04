@@ -96,5 +96,19 @@
     "code": "(![] + [])[+[]] + (![] + [])[+!+[]];",
     "challenge": { "ko": "이 외계어의 실행 결과는?", "en": "What is the result of this gibberish?" },
     "result": { "ko": "\"fa\" <br><small>'false' 문자열의 0번째와 1번째 글자를 가져온 것입니다. 이런 식으로 모든 영단어를 조합하는 'JSFuck'이라는 언어도 존재합니다.</small>", "en": "\"fa\" <br><small>It extracts 'f' and 'a' from the string 'false'. There's even a language called 'JSFuck' based on this.</small>" }
+  },
+  {
+    "title": { "ko": "사라진 리턴 값", "en": "The Vanishing Return" },
+    "desc": { "ko": "줄바꿈 하나가 초래한 비극", "en": "A tragedy caused by a newline" },
+    "code": "function getObject() {\n  return\n  { status: 'ok' };\n}\nconsole.log(getObject());",
+    "challenge": { "ko": "객체가 잘 출력될까요?", "en": "Will it log the object?" },
+    "result": { "ko": "undefined <br><small>자바스크립트의 ASI(자동 세미콜론 삽입)가 return 바로 뒤에 세미콜론을 붙여버려 함수가 일찍 종료됩니다.</small>", "en": "undefined <br><small>JS engine automatically inserts a semicolon after 'return', ending the function prematurely.</small>" }
+  },
+  {
+    "title": { "ko": "음의 영 (-0)의 존재", "en": "The Mystery of -0" },
+    "desc": { "ko": "영에도 부호가 있다?", "en": "Does zero have a sign?" },
+    "code": "let negZero = 0 / -3;\nconsole.log(negZero === 0);\nconsole.log(1 / negZero);",
+    "challenge": { "ko": "0과 같을까요? 1을 나누면 어떻게 될까요?", "en": "Is it equal to 0? What if we divide 1 by it?" },
+    "result": { "ko": "true 와 -Infinity <br><small>0과 -0은 비교 시 같지만, 나눗셈에서는 Infinity와 -Infinity로 나뉘는 엄연히 다른 값입니다.</small>", "en": "true and -Infinity <br><small>0 and -0 are equal in comparison, but yield different results (Infinity vs -Infinity) in division.</small>" }
   }
 ]
