@@ -25,14 +25,43 @@
       position: fixed; top: 20px; right: 20px; z-index: 1000;
       background: var(--card-bg); border: 1px solid var(--accent);
       padding: 5px; border-radius: 8px; backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
     .lang-btn {
       background: transparent; border: none; color: var(--text-secondary);
-      padding: 5px 15px; cursor: pointer; transition: 0.3s; font-family: inherit;
+      padding: 5px 10px; cursor: pointer; transition: 0.3s; font-family: inherit;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
     }
     .lang-btn.active { color: var(--accent); font-weight: bold; }
 
     .header { padding: 80px 40px 60px; text-align: center; }
+    .header-controls {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      z-index: 1000;
+    }
+    .github-link {
+      display: flex;
+      align-items: center;
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid var(--border);
+      opacity: 0.7;
+      transition: 0.3s;
+    }
+    .github-link:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
     h1 {
       font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 400;
       background: linear-gradient(90deg, var(--accent), #ffffff);
@@ -68,6 +97,12 @@
     .reveal-btn:hover { background: var(--accent); color: #000; }
     .spoiler { display: none; margin-top: 20px; padding: 20px; background: rgba(0,212,255,0.1); border-radius: 12px; border: 1px dashed var(--accent); }
     pre { font-family: inherit; }
+
+    .suggest-section {
+      max-width: 900px;
+      margin: 100px auto 40px;
+      padding: 0 20px;
+    }
   </style>
 </head>
 <body>
@@ -75,6 +110,9 @@
 <div class="lang-switch">
   <button id="btn-ko" class="lang-btn" onclick="setLang('ko')">KO</button>
   <button id="btn-en" class="lang-btn" onclick="setLang('en')">EN</button>
+  <a href="https://github.com/kangjung/js-edge-cases" target="_blank" class="github-link" title="View on GitHub">
+    <svg height="20" viewBox="0 0 16 16" width="20" fill="white"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+  </a>
 </div>
 
 <header class="header">
@@ -88,6 +126,23 @@
 
 <nav class="nav-grid" id="navGrid"></nav>
 <main id="content"></main>
+<section class="suggest-section">
+  <div class="card" style="text-align: center; border-style: dashed; border-width: 2px;">
+    <h2 data-ko="새로운 케이스 제보하기" data-en="Suggest a New Case">새로운 케이스 제보하기</h2>
+    <p style="margin: 20px 0; color: var(--text-secondary);"
+       data-ko="자바스크립트의 또 다른 기묘한 동작을 알고 계신가요? 직접 제보하여 목록을 늘려주세요!"
+       data-en="Know another weird JS behavior? Help us expand the collection by suggesting a case!">
+      자바스크립트의 또 다른 기묘한 동작을 알고 계신가요? 직접 제보하여 목록을 늘려주세요!
+    </p>
+    <a href="https://github.com/kangjung/js-edge-cases/issues/new/choose" target="_blank" class="reveal-btn" style="text-decoration: none; display: inline-block;">
+      🚀 <span data-ko="GitHub에서 제보하기" data-en="Submit on GitHub">GitHub에서 제보하기</span>
+    </a>
+  </div>
+</section>
+
+<footer style="text-align: center; padding: 40px; color: var(--text-secondary); font-size: 0.8rem; opacity: 0.6;">
+  <p>© 2026 JS Edge Cases Explorer • Built with ❤️ by kangjung</p>
+</footer>
 
 <script>
   let cases = [];
