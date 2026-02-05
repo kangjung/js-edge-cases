@@ -97,6 +97,23 @@
       .header-controls { top: 10px; right: 10px; padding: 4px 8px; }
       .header { padding-top: 60px; }
     }
+
+    .spec-link {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .spec-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: rgba(0, 212, 255, 0.05);
+    }
   </style>
 </head>
 <body>
@@ -179,6 +196,12 @@
 
     content.innerHTML = cases.map((c, i) => {
       const safeId = c.id || `case-${i}`;
+      const specButton = c.specUrl
+              ? `<a href="${c.specUrl}" target="_blank" class="spec-link">
+             📖 ${lang === 'ko' ? 'ECMAScript 명세서 보기' : 'View ECMAScript Spec'}
+           </a>`
+              : '';
+
       return `
         <section id="${safeId}" class="section">
           <div class="card">
@@ -188,7 +211,10 @@
             <button class="reveal-btn" onclick="toggleSpoiler('${safeId}_ans')">
               ${lang === 'ko' ? '결과 보기' : 'Reveal Result'}
             </button>
-            <div id="${safeId}_ans" class="spoiler">${getLangText(c.result, lang)}</div>
+            <div id="${safeId}_ans" class="spoiler">
+              ${getLangText(c.result, lang)}
+              <br>
+              ${specButton} </div>
           </div>
         </section>
       `;
