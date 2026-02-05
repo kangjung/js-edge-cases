@@ -46,7 +46,7 @@
     "desc": { "ko": "문자열 덧셈의 연쇄 작용", "en": "Chain reaction of string addition" },
     "code": "('b' + 'a' + + 'a' + 'a').toLowerCase();",
     "challenge": { "ko": "무슨 단어가 출력될까요?", "en": "What word will be logged?" },
-    "result": { "ko": "\"banana\" <br><small>中間에 있는 + + 'a'가 NaN(Not a Number)이 되어 baNaNa가 됩니다.</small>", "en": "\"banana\" <br><small>The + + 'a' in the middle results in NaN, creating 'baNaNa'.</small>" }
+    "result": { "ko": "\"banana\" <br><small>중간에 있는 + + 'a'가 NaN(Not a Number)이 되어 baNaNa가 됩니다.</small>", "en": "\"banana\" <br><small>The + + 'a' in the middle results in NaN, creating 'baNaNa'.</small>" }
   },
   {
     "title": { "ko": "정렬의 함정", "en": "The Sort Trap" },
