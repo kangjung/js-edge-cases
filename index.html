@@ -114,6 +114,44 @@
       border-color: var(--accent);
       background: rgba(0, 212, 255, 0.05);
     }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .share-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 6px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.8rem;
+    }
+    .share-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(0, 212, 255, 0.1);
+    }
+    /* 복사 완료 토스트 알림 (선택 사항) */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      display: none;
+      z-index: 2000;
+    }
   </style>
 </head>
 <body>
@@ -196,6 +234,7 @@
 
     content.innerHTML = cases.map((c, i) => {
       const safeId = c.id || `case-${i}`;
+      const title = getLangText(c.title, lang);
       let localizedMdnUrl = c.mdnUrl;
       if (localizedMdnUrl) {
         const langCode = lang === 'ko' ? '/ko/' : '/en-US/';
@@ -214,10 +253,20 @@
            </a>`
               : '';
 
+      const shareButton = `
+        <button class="share-btn" onclick="shareCase('${safeId}', '${title}')" title="Copy link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+          <span>Share</span>
+        </button>
+      `;
+
       return `
         <section id="${safeId}" class="section">
           <div class="card">
-            <h2>${getLangText(c.title, lang)}</h2>
+            <div class="card-header">
+              <h2>${title}</h2>
+              ${shareButton}
+            </div>
             <div class="code-block"><pre>${c.code}</pre></div>
             <div class="challenge">${getLangText(c.challenge, lang)}</div>
             <button class="reveal-btn" onclick="toggleSpoiler('${safeId}_ans')">
@@ -261,6 +310,33 @@
   function toggleSpoiler(id) {
     const el = document.getElementById(id);
     el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+  }
+
+  function shareCase(id, title) {
+    const url = `${window.location.origin}${window.location.pathname}#${id}`;
+    if (navigator.share) {
+      navigator.share({
+        title: `JS Edge Case: ${title}`,
+        url: url
+      }).catch(console.error);
+    } else {
+      navigator.clipboard.writeText(url).then(() => {
+        showToast(localStorage.getItem('lang') === 'ko' ? '링크가 복사되었습니다!' : 'Link copied to clipboard!');
+      });
+    }
+  }
+
+  function showToast(msg) {
+    let toast = document.getElementById('toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'toast';
+      toast.className = 'toast';
+      document.body.appendChild(toast);
+    }
+    toast.innerText = msg;
+    toast.style.display = 'block';
+    setTimeout(() => { toast.style.display = 'none'; }, 2000);
   }
 
   window.onload = () => {
