@@ -8,7 +8,8 @@
       "ko": "4, 3, 2, 1, 0 <br><small>이것은 연산자가 아니라 후위 감소(x--)와 초과 비교(> 0)가 합쳐진 형태입니다. 띄어쓰기를 바꾸면 'x-- > 0'이 되어 눈에 더 잘 들어옵니다.</small>",
       "en": "4, 3, 2, 1, 0 <br><small>It's not a single operator but a combination of postfix decrement (x--) and greater-than comparison (> 0). Rearranging whitespace as 'x-- > 0' makes it clearer.</small>"
     },
-    "specUrl": "https://tc39.es/ecma262/#sec-postfix-decrement-operator"
+    "specUrl": "https://tc39.es/ecma262/#sec-postfix-decrement-operator",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Decrement"
   },
   {
     "title": { "ko": "객체와 배열의 덧셈", "en": "Object/Array Coercion" },
@@ -19,7 +20,8 @@
       "ko": "\"[object Object]\" 와 0 <br><small>첫 번째는 문자열 결합으로 작동하지만, 두 번째는 앞의 {}를 빈 코드 블록으로 인식하고 뒤의 +[]를 단항 연산자로 처리하여 숫자 0이 됩니다.</small>",
       "en": "\"[object Object]\" and 0 <br><small>In the first case, it's string concatenation. In the second, {} is treated as an empty block, and +[] is evaluated as a unary plus operator, converting an empty array to 0.</small>"
     },
-    "specUrl": "https://tc39.es/ecma262/#sec-applystringornumericbinaryoperator"
+    "specUrl": "https://tc39.es/ecma262/#sec-applystringornumericbinaryoperator",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Addition"
   },
   {
     "title": { "ko": "NaN은 숫자인가?", "en": "NaN Identity Crisis" },
@@ -30,7 +32,8 @@
       "ko": "\"number\" 와 false <br><small>IEEE 754 표준에 따라 NaN은 숫자 타입으로 정의되지만, 어떤 값과도(자기 자신 포함) 같지 않도록 설계되었습니다. 확인을 위해선 Number.isNaN()을 써야 합니다.</small>",
       "en": "\"number\" and false <br><small>Per IEEE 754, NaN is a Number type but is designed to be unequal to any value, including itself. Use Number.isNaN() for checks.</small>"
     },
-    "specUrl": "https://tc39.es/ecma262/#sec-ecmascript-language-types-number-type"
+    "specUrl": "https://tc39.es/ecma262/#sec-ecmascript-language-types-number-type",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/NaN"
   },
   {
     "title": { "ko": "불리언 비교 체인", "en": "Boolean Comparison Chain" },
@@ -41,7 +44,8 @@
       "ko": "true 와 false <br><small>왼쪽부터 계산됩니다. 3 > 2는 true가 되고, 'true > 1'을 계산할 때 true가 숫자 1로 변환되면서 1 > 1은 거짓(false)이 됩니다.</small>",
       "en": "true and false <br><small>Evaluation goes left-to-right. 3 > 2 is true. Then 'true > 1' coerces true to 1, making 1 > 1 false.</small>"
     },
-    "specUrl": "https://tc39.es/ecma262/#sec-relational-operators"
+    "specUrl": "https://tc39.es/ecma262/#sec-relational-operators",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Greater_than"
   },
   {
     "title": { "ko": "전설의 [] == ![]", "en": "The Classic [] == ![]" },
@@ -52,7 +56,8 @@
       "ko": "true <br><small>![]은 false가 되고, [] == false 비교 시 양쪽이 모두 숫자 0으로 형변환됩니다. 0 == 0이 되어 결국 참이 됩니다.</small>",
       "en": "true <br><small>![] becomes false. When comparing [] == false, both sides are coerced to numbers, resulting in 0 == 0.</small>"
     },
-    "specUrl": "https://tc39.es/ecma262/#sec-abstract-equality-comparison"
+    "specUrl": "https://tc39.es/ecma262/#sec-abstract-equality-comparison",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Equality_comparisons_and_sameness"
   },
   {
     "title": { "ko": "Math.min()의 배신", "en": "The Betrayal of Math.min()" },
@@ -63,7 +68,8 @@
       "ko": "true <br><small>비교할 인자가 없을 때, Math.min은 가장 큰 값인 Infinity를, Math.max는 가장 작은 값인 -Infinity를 기본값으로 반환하기 때문입니다.</small>",
       "en": "true <br><small>With no arguments, Math.min defaults to Infinity and Math.max defaults to -Infinity, making the comparison true.</small>"
     },
-    "specUrl": "https://tc39.es/ecma262/#sec-math.min"
+    "specUrl": "https://tc39.es/ecma262/#sec-math.min",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/min"
   },
   {
     "title": { "ko": "바나나 만들기", "en": "Making a Banana" },
@@ -74,7 +80,8 @@
       "ko": "\"banana\" <br><small>+ + 'a'에서 두 번째 +가 'a'를 숫자로 바꾸려다 NaN을 반환합니다. 결과적으로 'ba' + 'NaN' + 'a'가 합쳐져 'banana'가 탄생합니다.</small>",
       "en": "\"banana\" <br><small>The unary plus (+ 'a') attempts to coerce 'a' to a number, resulting in NaN. Concatenating 'ba', 'NaN', and 'a' gives 'baNaNa'.</small>"
     },
-    "specUrl": "https://tc39.es/ecma262/#sec-unary-plus-operator"
+    "specUrl": "https://tc39.es/ecma262/#sec-unary-plus-operator",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Unary_plus"
   },
   {
     "title": { "ko": "정렬의 함정", "en": "The Sort Trap" },
@@ -85,7 +92,8 @@
       "ko": "[1, 10, 2, 21] <br><small>sort() 함수에 비교 함수를 넘기지 않으면 모든 요소를 문자열로 변환한 뒤 '사전순'으로 정렬합니다. '10'은 문자열 상 '2'보다 앞에 옵니다.</small>",
       "en": "[1, 10, 2, 21] <br><small>Without a compare function, sort() converts elements to strings and sorts them lexicographically. '10' comes before '2' as a string.</small>"
     },
-    "specUrl": "https://tc39.es/ecma262/#sec-array.prototype.sort"
+    "specUrl": "https://tc39.es/ecma262/#sec-array.prototype.sort",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/sort"
   },
   {
     "title": { "ko": "소수점의 마법", "en": "Floating Point Magic" },
@@ -96,7 +104,8 @@
       "ko": "false <br><small>컴퓨터는 숫자를 2진수로 저장합니다. 0.1과 0.2를 2진수로 변환하면 무한 소수가 되어 미세한 오차가 발생하며, 합계는 0.30000000000000004가 됩니다.</small>",
       "en": "false <br><small>Computers use binary floating-point math. 0.1 and 0.2 become infinite fractions in binary, leading to a sum of 0.30000000000000004.</small>"
     },
-    "specUrl": "https://tc39.es/ecma262/#sec-ecmascript-language-types-number-type"
+    "specUrl": "https://tc39.es/ecma262/#sec-ecmascript-language-types-number-type",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Number"
   },
   {
     "title": { "ko": "Null의 정체성", "en": "The Identity of Null" },
@@ -107,7 +116,8 @@
       "ko": "true 와 false <br><small>typeof null이 'object'인 것은 초기 JS 엔진의 구현 실수입니다. 하지만 instanceof는 프로토타입 체인을 확인하므로 null이 객체의 인스턴스가 아님을 정확히 압니다.</small>",
       "en": "true and false <br><small>typeof null returning 'object' is a legacy bug in the original JS implementation. However, instanceof correctly identifies that null is not an instance of Object.</small>"
     },
-    "specUrl": "https://tc39.es/ecma262/#sec-typeof-operator"
+    "specUrl": "https://tc39.es/ecma262/#sec-typeof-operator",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/typeof"
   },
   {
     "title": { "ko": "콤마 연산자의 마법", "en": "The Comma Operator Trick" },
@@ -118,7 +128,8 @@
       "ko": "3 <br><small>콤마(,) 연산자는 나열된 모든 표현식을 왼쪽에서 오른쪽으로 실행하고, '마지막' 표현식의 결과값만을 반환합니다.</small>",
       "en": "3 <br><small>The comma operator evaluates all its operands from left to right and returns the value of the last operand.</small>"
     },
-    "specUrl": "https://tc39.es/ecma262/#sec-comma-operator"
+    "specUrl": "https://tc39.es/ecma262/#sec-comma-operator",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Comma_operator"
   },
   {
     "title": { "ko": "배열 더하기 배열", "en": "Array + Array" },
@@ -129,7 +140,8 @@
       "ko": "\"\" (빈 문자열) <br><small>배열은 덧셈 시 ToPrimitive 과정을 통해 문자열로 바뀝니다. 빈 배열 []은 빈 문자열 \"\"이 되고, \"\" + \"\"의 결과로 빈 문자열이 반환됩니다.</small>",
       "en": "\"\" (Empty string) <br><small>Arrays undergo ToPrimitive conversion during addition. An empty array [] becomes \"\", so \"\" + \"\" results in an empty string.</small>"
     },
-    "specUrl": "https://tc39.es/ecma262/#sec-toprimitive"
+    "specUrl": "https://tc39.es/ecma262/#sec-toprimitive",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/toString"
   },
   {
     "title": { "ko": "숫자 뒤의 점 두 개", "en": "The Double Dot Trick" },
@@ -140,7 +152,8 @@
       "ko": "1.toString()이 에러! <br><small>JS 엔진은 숫자 뒤의 첫 번째 마침표를 소수점으로 해석합니다. 따라서 '1.'까지를 숫자로 보고 뒤에 바로 문자가 오면 문법 오류로 판단합니다. 점을 두 개 찍어야 메서드 호출로 인식합니다.</small>",
       "en": "1.toString() throws an error! <br><small>The parser treats the first dot after a number as a decimal point. A second dot is required to indicate property access (method call).</small>"
     },
-    "specUrl": "https://tc39.es/ecma262/#sec-literals-numeric-literals"
+    "specUrl": "https://tc39.es/ecma262/#sec-literals-numeric-literals",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Number/toString"
   },
   {
     "title": { "ko": "최후의 논리 연산", "en": "Ultimate Logical Coercion" },
@@ -151,7 +164,8 @@
       "ko": "\"fa\" <br><small>![]은 false, +[]은 0입니다. 즉, (\"false\")[0] + (\"false\")[1]을 계산한 것과 같습니다. 이 원리를 이용해 숫자와 기호만으로 모든 코드를 짜는 JSFuck 기법이 가능합니다.</small>",
       "en": "\"fa\" <br><small>![] is false and +[] is 0. This evaluates to (\"false\")[0] + (\"false\")[1]. This is the basis of JSFuck, where code is written using only a few symbols.</small>"
     },
-    "specUrl": "https://tc39.es/ecma262/#sec-property-accessors"
+    "specUrl": "https://tc39.es/ecma262/#sec-property-accessors",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Property_accessors"
   },
   {
     "title": { "ko": "사라진 리턴 값", "en": "The Vanishing Return" },
@@ -162,7 +176,8 @@
       "ko": "undefined <br><small>자동 세미콜론 삽입(ASI) 규칙에 의해 return 키워드 바로 뒤에 줄바꿈이 있으면 엔진이 자동으로 세미콜론을 붙여 함수를 종료해버립니다. 객체는 실행되지 않는 고립된 블록이 됩니다.</small>",
       "en": "undefined <br><small>Due to Automatic Semicolon Insertion (ASI), a newline after 'return' causes the engine to insert a semicolon, terminating the function early. The object becomes unreachable code.</small>"
     },
-    "specUrl": "https://tc39.es/ecma262/#sec-automatic-semicolon-insertion"
+    "specUrl": "https://tc39.es/ecma262/#sec-automatic-semicolon-insertion",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion"
   },
   {
     "title": { "ko": "음의 영 (-0)의 존재", "en": "The Mystery of -0" },
@@ -173,6 +188,7 @@
       "ko": "true 와 -Infinity <br><small>자바스크립트는 0과 -0을 동일하게 취급(===)하지만, 0을 -0으로 나누면 부호 정보가 살아있어 -Infinity가 나옵니다. 두 값을 정확히 구분하려면 Object.is(0, -0)를 써야 합니다.</small>",
       "en": "true and -Infinity <br><small>JS treats 0 and -0 as equal in strict comparison, but division reveals the sign bit as -Infinity. Use Object.is(0, -0) to distinguish them.</small>"
     },
-    "specUrl": "https://tc39.es/ecma262/#sec-strict-equality-comparison"
+    "specUrl": "https://tc39.es/ecma262/#sec-strict-equality-comparison",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/is"
   }
 ]

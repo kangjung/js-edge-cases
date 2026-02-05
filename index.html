@@ -196,9 +196,21 @@
 
     content.innerHTML = cases.map((c, i) => {
       const safeId = c.id || `case-${i}`;
+      let localizedMdnUrl = c.mdnUrl;
+      if (localizedMdnUrl) {
+        const langCode = lang === 'ko' ? '/ko/' : '/en-US/';
+        localizedMdnUrl = localizedMdnUrl.replace(/\/(ko|en-US)\//, langCode);
+      }
+
+      const mdnButton = localizedMdnUrl
+              ? `<a href="${localizedMdnUrl}" target="_blank" class="spec-link" style="border-color: var(--accent); color: var(--accent);">
+             📚 ${lang === 'ko' ? 'MDN 문서 보기' : 'View MDN Docs'}
+           </a>`
+              : '';
+
       const specButton = c.specUrl
-              ? `<a href="${c.specUrl}" target="_blank" class="spec-link">
-             📖 ${lang === 'ko' ? 'ECMAScript 명세서 보기' : 'View ECMAScript Spec'}
+              ? `<a href="${c.specUrl}" target="_blank" class="spec-link" style="font-size: 0.7rem; opacity: 0.7; margin-left: 8px;">
+             🔗 ${lang === 'ko' ? '공식 명세' : 'Official Spec'}
            </a>`
               : '';
 
@@ -214,7 +226,11 @@
             <div id="${safeId}_ans" class="spoiler">
               ${getLangText(c.result, lang)}
               <br>
-              ${specButton} </div>
+              <div style="margin-top: 10px;">
+                ${mdnButton}
+                ${specButton}
+              </div>
+            </div>
           </div>
         </section>
       `;
