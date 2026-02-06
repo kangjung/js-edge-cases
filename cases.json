@@ -190,5 +190,65 @@
     },
     "specUrl": "https://tc39.es/ecma262/#sec-strict-equality-comparison",
     "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/is"
+  },
+  {
+    "title": { "ko": "최대 안전 정수의 배신", "en": "The MAX_SAFE_INTEGER Betrayal" },
+    "desc": { "ko": "너무 큰 숫자는 구분이 안 된다?", "en": "Big numbers lose their identity" },
+    "code": "const x = 9007199254740991;\nx + 1 === x + 2;",
+    "challenge": { "ko": "결과는 true일까요, false일까요?", "en": "Is it true or false?" },
+    "result": {
+      "ko": "true <br><small>이 값은 Number.MAX_SAFE_INTEGER입니다. 이 범위를 벗어나면 64비트 부동소수점 정밀도 한계로 인해 인접한 정수를 동일한 값으로 처리하게 됩니다.</small>",
+      "en": "true <br><small>This is Number.MAX_SAFE_INTEGER. Beyond this limit, due to 64-bit floating-point precision, JavaScript treats adjacent integers as the same value.</small>"
+    },
+    "specUrl": "https://tc39.es/ecma262/#sec-number.max_safe_integer",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER"
+  },
+  {
+    "title": { "ko": "finally는 무조건 이긴다", "en": "Finally Always Wins" },
+    "desc": { "ko": "try에서 return을 해도 실행될까?", "en": "Does it run even after a return?" },
+    "code": "function magic() {\n  try {\n    return 'try';\n  } finally {\n    return 'finally';\n  }\n}\nmagic();",
+    "challenge": { "ko": "어떤 문자열이 반환될까요?", "en": "Which string is returned?" },
+    "result": {
+      "ko": "\"finally\" <br><small>try 블록에서 return을 만나더라도 finally 블록은 반드시 실행됩니다. 만약 finally 안에도 return이 있다면 try의 반환값은 완전히 무시됩니다.</small>",
+      "en": "\"finally\" <br><small>Even if a return is encountered in the try block, the finally block is guaranteed to execute. If finally also returns, it overrides the try block's return value.</small>"
+    },
+    "specUrl": "https://tc39.es/ecma262/#sec-runtime-semantics-evaluation",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/try...catch#the_finally_clause"
+  },
+  {
+    "title": { "ko": "배열인 듯 배열 아닌 length", "en": "The Ghost Length" },
+    "desc": { "ko": "배열에 문자열 키로 값을 넣으면?", "en": "Adding string keys to an array" },
+    "code": "let a = [1, 2, 3];\na['foo'] = 'bar';\nconsole.log(a.length);",
+    "challenge": { "ko": "배열의 길이는 4가 될까요?", "en": "Will the length be 4?" },
+    "result": {
+      "ko": "3 <br><small>배열도 객체이므로 임의의 키를 가질 수 있지만, length 속성은 오직 '양의 정수' 형태의 인덱스가 추가될 때만 자동으로 업데이트됩니다.</small>",
+      "en": "3 <br><small>Arrays are objects and can have arbitrary keys, but the length property only tracks numeric indices.</small>"
+    },
+    "specUrl": "https://tc39.es/ecma262/#sec-array-exotic-objects",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/length"
+  },
+  {
+    "title": { "ko": "parseInt의 기묘한 해석", "en": "The Strange parseInt" },
+    "desc": { "ko": "parseInt(0.0000005)의 결과는?", "en": "What is parseInt(0.0000005)?" },
+    "code": "parseInt(0.0000005);",
+    "challenge": { "ko": "0이 나올까요, 다른 값이 나올까요?", "en": "Will it be 0 or something else?" },
+    "result": {
+      "ko": "5 <br><small>parseInt는 인자를 문자열로 먼저 변환합니다. 0.0000005는 문자열로 \"5e-7\"이 되며, parseInt는 여기서 숫자 5만 추출하여 반환합니다.</small>",
+      "en": "5 <br><small>parseInt coerces its argument to a string. 0.0000005 becomes \"5e-7\", and parseInt parses the leading '5' before hitting the non-numeric 'e'.</small>"
+    },
+    "specUrl": "https://tc39.es/ecma262/#sec-parseint-string-radix",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/parseInt"
+  },
+  {
+    "title": { "ko": "함수 이름의 읽기 전용 특성", "en": "Read-only Function Names" },
+    "desc": { "ko": "함수 이름을 강제로 바꾸면?", "en": "Can we rename a function?" },
+    "code": "function foo() {}\nfoo.name = 'bar';\nconsole.log(foo.name);",
+    "challenge": { "ko": "이름이 'bar'로 바뀌어 있을까요?", "en": "Will the name be 'bar'?" },
+    "result": {
+      "ko": "\"foo\" <br><small>함수 객체의 name 속성은 설정 불가능(Configurable: false)한 읽기 전용 속성입니다. 에러는 나지 않지만 무시됩니다.</small>",
+      "en": "\"foo\" <br><small>The 'name' property of a function object is read-only and non-configurable by default. Assignments are silently ignored.</small>"
+    },
+    "specUrl": "https://tc39.es/ecma262/#sec-function-instances-name",
+    "mdnUrl": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/name"
   }
 ]
