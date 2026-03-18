@@ -95,6 +95,40 @@
 
     .suggest-section { max-width: 900px; margin: 100px auto 40px; padding: 0 20px; }
 
+
+    .upgrade-section { max-width: 1100px; margin: 80px auto 40px; padding: 0 20px; }
+    .upgrade-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .upgrade-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      transition: 0.25s;
+    }
+    .upgrade-item:hover {
+      border-color: var(--accent);
+      box-shadow: 0 6px 24px var(--accent-glow);
+      transform: translateY(-2px);
+    }
+    .upgrade-item h3 { font-size: 1rem; margin-bottom: 8px; color: var(--accent); }
+    .upgrade-item p { color: var(--text-secondary); font-size: 0.9rem; }
+    .upgrade-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      border: 1px dashed var(--border);
+      border-radius: 999px;
+      padding: 4px 10px;
+      margin-bottom: 10px;
+    }
+
     @media (max-width: 600px) {
       .header-controls { top: 10px; right: 10px; padding: 4px 8px; }
       .header { padding-top: 60px; }
@@ -225,6 +259,55 @@
 
 <nav class="nav-grid" id="navGrid"></nav>
 <main id="content"></main>
+
+
+<section class="upgrade-section">
+  <div class="card">
+    <h2 data-ko="🚀 더 재밌고 전문적으로 보이게 만드는 업그레이드 체크리스트"
+        data-en="🚀 Upgrade Checklist to Make This More Fun and Professional">
+      🚀 더 재밌고 전문적으로 보이게 만드는 업그레이드 체크리스트
+    </h2>
+    <p style="margin-top: 10px; color: var(--text-secondary);"
+       data-ko="아이디어 단계에서 바로 실행 가능한 항목만 추렸어요. 우선순위 높은 것부터 하나씩 적용해보세요."
+       data-en="A practical list you can execute right away. Start with the highest-impact items first.">
+      아이디어 단계에서 바로 실행 가능한 항목만 추렸어요. 우선순위 높은 것부터 하나씩 적용해보세요.
+    </p>
+    <div class="upgrade-grid">
+      <article class="upgrade-item">
+        <span class="upgrade-badge" data-ko="신뢰도 강화" data-en="Trust Booster">신뢰도 강화</span>
+        <h3 data-ko="케이스별 출처 점수" data-en="Source Quality Score">케이스별 출처 점수</h3>
+        <p data-ko="각 케이스에 MDN/ECMA 명세/브라우저 재현 여부 배지를 붙여 정보 신뢰도를 즉시 보여주세요."
+           data-en="Add MDN/ECMA/reproducibility badges to each case so users can instantly judge reliability.">
+          각 케이스에 MDN/ECMA 명세/브라우저 재현 여부 배지를 붙여 정보 신뢰도를 즉시 보여주세요.
+        </p>
+      </article>
+      <article class="upgrade-item">
+        <span class="upgrade-badge" data-ko="재미 요소" data-en="Fun Layer">재미 요소</span>
+        <h3 data-ko="예측 점수 보드" data-en="Prediction Scoreboard">예측 점수 보드</h3>
+        <p data-ko="정답 맞히기 성공률(%)을 저장하면 퀴즈 감성이 강화되고 재방문율이 올라갑니다."
+           data-en="Store user prediction accuracy (%) to increase the quiz vibe and return visits.">
+          정답 맞히기 성공률(%)을 저장하면 퀴즈 감성이 강화되고 재방문율이 올라갑니다.
+        </p>
+      </article>
+      <article class="upgrade-item">
+        <span class="upgrade-badge" data-ko="전문성" data-en="Technical Depth">전문성</span>
+        <h3 data-ko="명세 해설 토글" data-en="Spec Walkthrough Toggle">명세 해설 토글</h3>
+        <p data-ko="원하는 사람만 볼 수 있게 'ToPrimitive → ToNumber' 같은 변환 과정을 단계별로 펼쳐주세요."
+           data-en="Add optional step-by-step coercion traces (e.g., ToPrimitive → ToNumber) for deeper learners.">
+          원하는 사람만 볼 수 있게 'ToPrimitive → ToNumber' 같은 변환 과정을 단계별로 펼쳐주세요.
+        </p>
+      </article>
+      <article class="upgrade-item">
+        <span class="upgrade-badge" data-ko="커뮤니티" data-en="Community">커뮤니티</span>
+        <h3 data-ko="난이도·태그 필터" data-en="Difficulty & Tag Filter">난이도·태그 필터</h3>
+        <p data-ko="초급/중급/고급 + 배열/비교/프로토타입 태그 필터를 넣으면 학습 경로가 명확해집니다."
+           data-en="Add beginner/intermediate/advanced plus topic tags to create clear learning paths.">
+          초급/중급/고급 + 배열/비교/프로토타입 태그 필터를 넣으면 학습 경로가 명확해집니다.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
 
 <section class="suggest-section">
   <div class="card" style="text-align: center; border-style: dashed; border-width: 2px;">
